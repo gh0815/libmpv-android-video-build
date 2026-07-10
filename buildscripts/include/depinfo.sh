@@ -36,9 +36,8 @@ dep_harfbuzz=()
 dep_libass=(freetype fribidi harfbuzz)
 dep_lua=()
 dep_shaderc=()
-dep_libbluray=()
 if [ -n "${ENCODERS_GPL+x}" ]; then
-	dep_mpv=(ffmpeg libass fftools_ffi libbluray)
+	dep_mpv=(ffmpeg libass fftools_ffi)
 else
-	dep_mpv=(ffmpeg libass libbluray)
+	dep_mpv=(ffmpeg libass)
 fi
