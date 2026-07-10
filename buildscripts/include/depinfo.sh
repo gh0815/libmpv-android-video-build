@@ -18,10 +18,9 @@ v_mpv=78d43740f52db817d98bcf24fb30a76ab6fa13ff
 v_libogg=1.3.5
 v_libvorbis=1.3.7
 v_libvpx=1.13
-
+v_libbluray=1.3.4
 
 ## Dependency tree
-# I would've used a dict but putting arrays in a dict is not a thing
 
 dep_mbedtls=()
 dep_dav1d=()
@@ -37,8 +36,9 @@ dep_harfbuzz=()
 dep_libass=(freetype fribidi harfbuzz)
 dep_lua=()
 dep_shaderc=()
+dep_libbluray=()
 if [ -n "${ENCODERS_GPL+x}" ]; then
-	dep_mpv=(ffmpeg libass fftools_ffi)
+	dep_mpv=(ffmpeg libass fftools_ffi libbluray)
 else
-	dep_mpv=(ffmpeg libass)
+	dep_mpv=(ffmpeg libass libbluray)
 fi
