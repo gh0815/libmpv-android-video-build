@@ -62,3 +62,6 @@ HEREDOC
 [ ! -d media_kit ] && git clone --depth 1 --single-branch --branch main https://github.com/alexmercerind/media_kit.git
 
 cd ..
+
+# libbluray
+[ ! -d libbluray ] && git clone --depth 1 --branch v1.3.4 https://code.videolan.org/videolan/libbluray.git libbluray
