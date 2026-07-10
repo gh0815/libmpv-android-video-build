@@ -62,6 +62,3 @@ HEREDOC
 [ ! -d media_kit ] && git clone --depth 1 --single-branch --branch main https://github.com/alexmercerind/media_kit.git
 
 cd ..
-
-# libbluray
-[ ! -d libbluray ] && ( wget --no-check-certificate -q https://download.videolan.org/pub/videolan/libbluray/1.3.4/libbluray-1.3.4.tar.bz2 -O libbluray.tar.bz2 && tar -xf libbluray.tar.bz2 && mv libbluray-1.3.4 libbluray && rm libbluray.tar.bz2 ) || echo "libbluray SKIP"
