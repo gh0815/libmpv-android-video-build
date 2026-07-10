@@ -16,18 +16,6 @@ fi
 
 unset CC CXX # meson wants these unset
 
-# Build libbluray (optional, for BluRay disc title)
-if [ ! -d "$prefix_dir/lib/libbluray.a" ]; then
-  BLURAY_SRC=deps/libbluray
-  if [ ! -d "$BLURAY_SRC" ]; then
-    mkdir -p deps
-    wget --no-check-certificate -q https://download.videolan.org/pub/videolan/libbluray/1.3.4/libbluray-1.3.4.tar.bz2 -O /tmp/libbluray.tar.bz2 && tar -xf /tmp/libbluray.tar.bz2 -C deps && mv deps/libbluray-1.3.4 "$BLURAY_SRC" && rm /tmp/libbluray.tar.bz2 || echo "[libbluray] download failed"
-  fi
-  if [ -d "$BLURAY_SRC" ]; then
-    (cd "$BLURAY_SRC" && ./configure --host=$ndk_triple --prefix="$prefix_dir" --enable-static --disable-shared --disable-examples --disable-bdjava-jar --without-freetype --without-fontconfig CC="${CC}" AR="${AR}" RANLIB="${RANLIB}" CFLAGS="-I$prefix_dir/include -Os -fPIC" LDFLAGS="-L$prefix_dir/lib" && make -j$cores && make install) || echo "[libbluray] build failed, building mpv without bluray"
-  fi
-fi
-
 meson setup $build --cross-file "$prefix_dir"/crossfile.txt \
 	--prefer-static \
 	--default-library shared \
